@@ -4,24 +4,31 @@ import Login from './components/login/Login';
 import {getTokenFromUrl} from './utils/spotify';
 import SpotifyWebApi from 'spotify-web-api-js'
 import './App.css';
+import {useStateValue} from './context-api/StateProvider'
 
 const spotify = new SpotifyWebApi();
 
 function App() {
 // after login app component loads, gets token from url
-  const[token, setToken]=useState(null);
-
+ 
+  const[{user, token}, dispatch] = useStateValue();
+  
     useEffect(()=>{
       const hash=getTokenFromUrl();
       window.location.hash="";
       const _token=hash.access_token;
 
       if(_token){
-        setToken(_token)
-
+        dispatch({
+          type: 'SET_TOKEN',
+          token: _token
+        })
         spotify.setAccessToken(_token);
         spotify.getMe().then(user=>{
-          console.log('person', user);
+          dispatch({
+            type:'SET_USER',
+            user: user
+          })
         })
       }
 
@@ -32,7 +39,7 @@ function App() {
     <div className="app">
       {
         token? (
-          <Player />)
+          <Player spotify={spotify}/>)
           :(<Login />)
         }
 
