@@ -4,8 +4,12 @@
     height: 100vh;
     color: white;
     padding: 30px;
-
+    overflow: overlay;
 }
+
+.body::-webkit-scrollbar{
+    display:none;
+  }
 
 .body__info{
     display: flex;
