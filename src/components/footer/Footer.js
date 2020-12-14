@@ -14,7 +14,7 @@ function Footer() {
     return (
         <div className="footer">
             <div className="footer__left">
-                <img src="" alt="" />
+                <img className="footer__albumLogo" src="https://en.wikipedia.org/wiki/Yeah!_(Usher_song)#/media/File:Usher-yeah.jpg" alt="" />
                 <div className="footer__songInfo">
                     <h4>Yeah!</h4>
                     <p>Usher</p>
@@ -24,8 +24,8 @@ function Footer() {
                 <ShuffleIcon className="footer__green"/>
                 <SkipPreviousIcon className="footer__icon"/>
                 <PlayCircleOutlineIcon fontSize="large" className="footer__icon"/>
-                <SkipNextIcon className="footer_icon"/>
-                <RepeatIcon className="footer__icon"/>
+                <SkipNextIcon className="footer__icon"/>
+                <RepeatIcon className="footer__green"/>
             </div>
             <div className="footer__right">
                 <Grid container spacing={2}>
