@@ -4,7 +4,9 @@
     height: 100vh;
     color: white;
     padding: 30px;
-    overflow: overlay;
+    overflow-y: overlay;
+    background-color: rgb(91, 87, 115);
+    width: 100%;
 }
 
 .body::-webkit-scrollbar{
